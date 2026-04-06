@@ -366,9 +366,11 @@ section {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  min-height: 500px;
+  /* Increased height to ensure the embedded comments are fully visible */
+  min-height: 650px;
   border-radius: 8px;
-  overflow: hidden;
+  /* Allow the inner iframe to determine its own height */
+  overflow: visible;
   /* optional: define CSS variables to tweak Cusdis theme */
   --cusdis-background: var(--color-bg);
   --cusdis-text-color: var(--color-text);
@@ -379,6 +381,14 @@ section {
   --cusdis-button-background: var(--color-accent);
   --cusdis-button-text-color: #000;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Ensure the Cusdis iframe adapts to content height */
+.comments #cusdis_thread iframe {
+  width: 100% !important;
+  min-height: 650px !important;
+  height: auto !important;
+  border: none !important;
 }
 
 /* Media Queries */
@@ -394,17 +404,4 @@ section {
     width: 100%;
     text-align: right;
   }
-}
-
-.comments .section-inner {
-  max-width: 900px;
-}
-
-#cusdis_thread {
-  margin-top: 1.5rem;
-  padding: 1.25rem;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(98, 166, 226, 0.2);
-  border-radius: 12px;
-  box-shadow: 0 0 18px rgba(98, 166, 226, 0.08);
 }
