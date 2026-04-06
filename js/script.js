@@ -1,62 +1,35 @@
 /*
  * Client‑side logic for The Flaxen Tyranny landing page.
- * Handles regional link assignment, custom audio player controls and
- * highlighting active tracks.  The audio player is designed to load
- * metadata lazily and display accurate durations once available.
+ * Handles store selection pop‑ups for Audible links, custom audio
+ * player controls, and highlighting of active tracks.  The audio
+ * player is designed to load metadata lazily and display accurate
+ * durations once available.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Region detection for Audible, Kindle and Paperback links
-  const audibleLinks = {
-    uk: 'https://www.audible.co.uk/pd/B0CM79DP7H',
-    us: 'https://www.audible.com/pd/B0CM71JQYY'
-  };
-  const bookLinks = {
-    uk: 'https://www.amazon.co.uk/dp/B0BVL1C9ZF',
-    us: 'https://www.amazon.com/dp/B0BVL1C9ZF'
-  };
-
-  function detectRegion() {
-    const lang = (navigator.language || '').toLowerCase();
-    if (lang.startsWith('en-gb')) return 'uk';
-    if (lang.startsWith('en-us')) return 'us';
-    return null;
-  }
-
-  const region = detectRegion();
-  const primaryCtas = [
-    document.getElementById('primary-cta-top'),
-    document.getElementById('primary-cta-bottom')
-  ];
-  if (region && audibleLinks[region]) {
-    primaryCtas.forEach(el => {
-      el.href = audibleLinks[region];
-      el.setAttribute('target', '_blank');
-      el.setAttribute('rel', 'noopener noreferrer');
+  // Store selector toggle for Audible CTA
+  const ctaButtons = document.querySelectorAll('.primary-cta');
+  const storeSelectors = document.querySelectorAll('.store-selector');
+  ctaButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      // Prevent default navigation; we want to open selector instead
+      e.preventDefault();
+      const container = btn.parentElement;
+      const selector = container.querySelector('.store-selector');
+      const isOpen = selector.classList.contains('open');
+      // Close all selectors first
+      storeSelectors.forEach(sel => sel.classList.remove('open'));
+      if (!isOpen) {
+        selector.classList.add('open');
+      }
     });
-  } else {
-    // default fallback: link to Audible homepage; you may implement a region selector here
-    primaryCtas.forEach(el => {
-      el.href = 'https://www.audible.com/';
-      el.setAttribute('target', '_blank');
-      el.setAttribute('rel', 'noopener noreferrer');
-    });
-  }
-
-  const kindleBtn = document.getElementById('kindle-button');
-  const paperbackBtn = document.getElementById('paperback-button');
-  if (region && bookLinks[region]) {
-    kindleBtn.href = bookLinks[region];
-    paperbackBtn.href = bookLinks[region];
-  } else {
-    // fallback to generic Amazon (US) listing
-    kindleBtn.href = 'https://www.amazon.com/dp/B0BVL1C9ZF';
-    paperbackBtn.href = 'https://www.amazon.com/dp/B0BVL1C9ZF';
-  }
-  kindleBtn.setAttribute('target', '_blank');
-  kindleBtn.setAttribute('rel', 'noopener noreferrer');
-  paperbackBtn.setAttribute('target', '_blank');
-  paperbackBtn.setAttribute('rel', 'noopener noreferrer');
+  });
+  // Close store selector on outside click
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.cta-container')) {
+      storeSelectors.forEach(sel => sel.classList.remove('open'));
+    }
+  });
 
   // Audio player functionality
   const tracks = document.querySelectorAll('.audio-section .track');

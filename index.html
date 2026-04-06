@@ -25,10 +25,15 @@
       <div class="hero-content">
         <h1 class="hero-title">The Flaxen Tyranny</h1>
         <p class="hero-subtitle">Humanity’s last hope awakens in the far future</p>
-        <a id="primary-cta-top" class="btn primary-cta" href="#" role="button">Start Listening on Audible</a>
-        <p class="small-link">
-          <a id="region-link" href="#">Not in the right region? Choose your store</a>
-        </p>
+        <!-- Audible CTA with store selector -->
+        <div class="cta-container">
+          <a id="primary-cta-top" class="btn primary-cta" href="#" role="button">Start Listening on Audible</a>
+          <div class="store-selector" id="audible-selector-top">
+            <p class="selector-label">Select your Audible store:</p>
+            <a class="store-option" href="https://www.audible.co.uk/pd/B0CM79DP7H" target="_blank" rel="noopener noreferrer">Audible UK</a>
+            <a class="store-option" href="https://www.audible.com/pd/B0CM71JQYY" target="_blank" rel="noopener noreferrer">Audible US</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -37,14 +42,13 @@
       <div class="section-inner">
         <h2 class="section-title">Official Trailer</h2>
         <div class="video-container">
-<iframe
-  src="https://www.youtube.com/embed/4LJjXC6H2Q8"
-  title="The Flaxen Tyranny Trailer"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  referrerpolicy="strict-origin-when-cross-origin"
-  allowfullscreen
-></iframe>
+          <iframe
+            src="https://www.youtube.com/embed/" 
+            title="The Flaxen Tyranny Trailer"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
     </section>
@@ -139,7 +143,14 @@
 
     <!-- CTA Section after audio -->
     <section class="cta-section">
-      <a id="primary-cta-bottom" class="btn primary-cta" href="#" role="button">Start Listening on Audible</a>
+      <div class="cta-container">
+        <a id="primary-cta-bottom" class="btn primary-cta" href="#" role="button">Start Listening on Audible</a>
+        <div class="store-selector" id="audible-selector-bottom">
+          <p class="selector-label">Select your Audible store:</p>
+          <a class="store-option" href="https://www.audible.co.uk/pd/B0CM79DP7H" target="_blank" rel="noopener noreferrer">Audible UK</a>
+          <a class="store-option" href="https://www.audible.com/pd/B0CM71JQYY" target="_blank" rel="noopener noreferrer">Audible US</a>
+        </div>
+      </div>
     </section>
 
     <!-- Reviews Section -->
@@ -171,8 +182,16 @@
       <div class="section-inner">
         <h2 class="section-title">Prefer another format?</h2>
         <div class="format-buttons">
-          <a id="kindle-button" class="btn secondary" href="#" role="button">Read on Kindle</a>
-          <a id="paperback-button" class="btn secondary" href="#" role="button">Buy the Paperback</a>
+          <div class="format-group">
+            <h3 class="format-title">Kindle</h3>
+            <a class="btn secondary" href="https://www.amazon.co.uk/dp/B0BVL1C9ZF" target="_blank" rel="noopener noreferrer">Amazon UK</a>
+            <a class="btn secondary" href="https://www.amazon.com/dp/B0BVL1C9ZF" target="_blank" rel="noopener noreferrer">Amazon US</a>
+          </div>
+          <div class="format-group">
+            <h3 class="format-title">Paperback</h3>
+            <a class="btn secondary" href="https://www.amazon.co.uk/dp/B0BVL1C9ZF" target="_blank" rel="noopener noreferrer">Amazon UK</a>
+            <a class="btn secondary" href="https://www.amazon.com/dp/B0BVL1C9ZF" target="_blank" rel="noopener noreferrer">Amazon US</a>
+          </div>
         </div>
       </div>
     </section>
