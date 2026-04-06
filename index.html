@@ -1,33 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Flaxen Tyranny</title>
-  <link rel="stylesheet" href="css/styles.css" />
-</head>
-<body>
-  <main class="container">
-    <h1 class="title">The Flaxen Tyranny</h1>
-    <h2 class="subtitle">Official website coming soon</h2>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Flaxen Tyranny</title>
+    <!--
+      The main landing page for The Flaxen Tyranny.
+      This file stitches together all the core sections: hero banner,
+      trailer, audio player, primary call‑to‑action, reviews, format
+      buttons and comments.  Styles live in css/styles.css and dynamic
+      behaviour in js/script.js.  Modify those files to refine
+      appearance or functionality.
+    -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Google Fonts for modern, sci‑fi typography -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <img class="hero-bg" src="images/hero.jpg" alt="Cinematic space background" />
+      <div class="hero-content">
+        <h1 class="hero-title">The Flaxen Tyranny</h1>
+        <p class="hero-subtitle">Humanity’s last hope awakens in the far future</p>
+        <a id="primary-cta-top" class="btn primary-cta" href="#" role="button">Start Listening on Audible</a>
+        <p class="small-link">
+          <a id="region-link" href="#">Not in the right region? Choose your store</a>
+        </p>
+      </div>
+    </section>
 
-    <p>🔥 It works.</p>
-    <p class="description">A new sci-fi universe is on its way.</p>
+    <!-- Trailer Section -->
+    <section class="trailer" id="trailer">
+      <div class="section-inner">
+        <h2 class="section-title">Official Trailer</h2>
+        <div class="video-container">
+<iframe
+  src="https://www.youtube.com/embed/4LJjXC6H2Q8"
+  title="The Flaxen Tyranny Trailer"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
+        </div>
+      </div>
+    </section>
 
-    <a href="#" class="cta" aria-disabled="true" tabindex="-1">Coming&nbsp;Soon</a>
-  </main>
+    <!-- Audio Player Section -->
+    <section class="audio-section" id="listen">
+      <div class="section-inner">
+        <h2 class="section-title">Listen to the First Chapters Free</h2>
+        <p class="section-subtitle">Start with a powerful moment… or begin at the very start.</p>
+        <!-- Featured track -->
+        <div class="featured-track track" data-src="audio/retail-sample.mp3">
+          <div class="track-header">
+            <h3 class="track-title">Featured Scene — Under Fire</h3>
+            <p class="track-desc">Discover the true horror of the Flaxens.</p>
+          </div>
+          <div class="controls">
+            <button class="play-pause" aria-label="Play" data-playing="false">▶</button>
+            <div class="progress-container">
+              <div class="progress-bar"></div>
+            </div>
+            <div class="time">
+              <span class="current">0:00</span> / <span class="duration">0:00</span>
+            </div>
+          </div>
+          <audio preload="metadata" src="audio/retail-sample.mp3"></audio>
+        </div>
+        <!-- Chapter playlist -->
+        <div class="track-list">
+          <div class="track" data-src="audio/chapter-1-suffering.mp3">
+            <div class="track-info">
+              <h4>Chapter 1 — Suffering</h4>
+            </div>
+            <div class="controls">
+              <button class="play-pause" aria-label="Play" data-playing="false">▶</button>
+              <div class="progress-container">
+                <div class="progress-bar"></div>
+              </div>
+              <div class="time">
+                <span class="current">0:00</span> / <span class="duration">0:00</span>
+              </div>
+            </div>
+            <audio preload="metadata" src="audio/chapter-1-suffering.mp3"></audio>
+          </div>
+          <div class="track" data-src="audio/chapter-2-copious-time.mp3">
+            <div class="track-info">
+              <h4>Chapter 2 — Copious Time</h4>
+            </div>
+            <div class="controls">
+              <button class="play-pause" aria-label="Play" data-playing="false">▶</button>
+              <div class="progress-container">
+                <div class="progress-bar"></div>
+              </div>
+              <div class="time">
+                <span class="current">0:00</span> / <span class="duration">0:00</span>
+              </div>
+            </div>
+            <audio preload="metadata" src="audio/chapter-2-copious-time.mp3"></audio>
+          </div>
+          <div class="track" data-src="audio/chapter-3-echoes.mp3">
+            <div class="track-info">
+              <h4>Chapter 3 — Echoes</h4>
+            </div>
+            <div class="controls">
+              <button class="play-pause" aria-label="Play" data-playing="false">▶</button>
+              <div class="progress-container">
+                <div class="progress-bar"></div>
+              </div>
+              <div class="time">
+                <span class="current">0:00</span> / <span class="duration">0:00</span>
+              </div>
+            </div>
+            <audio preload="metadata" src="audio/chapter-3-echoes.mp3"></audio>
+          </div>
+          <div class="track" data-src="audio/chapter-4-constants.mp3">
+            <div class="track-info">
+              <h4>Chapter 4 — Constants</h4>
+            </div>
+            <div class="controls">
+              <button class="play-pause" aria-label="Play" data-playing="false">▶</button>
+              <div class="progress-container">
+                <div class="progress-bar"></div>
+              </div>
+              <div class="time">
+                <span class="current">0:00</span> / <span class="duration">0:00</span>
+              </div>
+            </div>
+            <audio preload="metadata" src="audio/chapter-4-constants.mp3"></audio>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section style="max-width: 800px; margin: 60px auto; padding: 0 20px;">
-    <h2 style="color: #7db7ff; text-align: center; margin-bottom: 24px;">Discussion</h2>
+    <!-- CTA Section after audio -->
+    <section class="cta-section">
+      <a id="primary-cta-bottom" class="btn primary-cta" href="#" role="button">Start Listening on Audible</a>
+    </section>
 
-    <div id="cusdis_thread"
-      data-host="https://cusdis.com"
-      data-app-id="52e32dc2-1ae4-446a-af1d-9c4fbd7c26e8"
-      data-page-id="home"
-      data-page-url="https://effervescent-tartufo-3f9b86.netlify.app/"
-      data-page-title="The Flaxen Tyranny"
-    ></div>
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+      <div class="section-inner">
+        <h2 class="section-title">What Readers Are Saying</h2>
+        <div class="review-cards">
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">“An epic science‑fiction odyssey that kept me on the edge of my seat.”</p>
+            <p class="review-author">— J. Harper</p>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★☆</div>
+            <p class="review-text">“The concept of time dilation and AI siblings is brilliantly executed.”</p>
+            <p class="review-author">— S. Nguyen</p>
+          </div>
+          <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p class="review-text">“Unforgettable characters and a world that begs to be explored.”</p>
+            <p class="review-author">— A. Khan</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formats Section -->
+    <section class="formats" id="formats">
+      <div class="section-inner">
+        <h2 class="section-title">Prefer another format?</h2>
+        <div class="format-buttons">
+          <a id="kindle-button" class="btn secondary" href="#" role="button">Read on Kindle</a>
+          <a id="paperback-button" class="btn secondary" href="#" role="button">Buy the Paperback</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comments Section -->
+    <section class="comments" id="comments">
+      <div class="section-inner">
+        <h2 class="section-title">Discuss the Story</h2>
+        <div id="cusdis_thread"
+          data-host="https://cusdis.com"
+          data-app-id="52e32dc2-1ae4-446a-af1d-9c4fbd7c26e8"
+          data-page-id="home"
+          data-page-url="https://effervescent-tartufo-3f9b86.netlify.app/"
+          data-page-title="The Flaxen Tyranny"
+          data-theme="dark"
+        ></div>
+      </div>
+    </section>
     <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
-  </section>
-</body>
+    <script src="js/script.js"></script>
+  </body>
 </html>

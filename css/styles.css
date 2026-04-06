@@ -1,84 +1,333 @@
 /*
- * Styles for the temporary coming‑soon page of The Flaxen Tyranny.
- * The design embraces a dark, sci‑fi aesthetic with a modern minimal layout.
- * This stylesheet should be lightweight and responsive on all devices.
+ * Global styles for The Flaxen Tyranny landing page.
+ * Uses a dark palette with cyan and magenta highlights to evoke
+ * a cinematic sci‑fi atmosphere.  Keep CSS modular and
+ * responsive — sections stack on small screens and float on
+ * larger displays.  Adjust variables at the top to tweak
+ * colours across the site.
  */
 
-/* Normalize spacing and box sizing */
+:root {
+  --color-bg: #0a1428;
+  --color-bg-dark: #010410;
+  --color-primary: #62a6e2; /* cyan */
+  --color-accent: #c83dd6; /* magenta */
+  --color-text: #e4eaf1;
+  --color-secondary: #b3c7e3;
+  --color-muted: #8fa5c5;
+  --max-width: 1200px;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Import a futuristic sans-serif font for the title */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@400;500;600&display=swap');
+html, body {
+  height: 100%;
+}
 
 body {
   font-family: 'Inter', sans-serif;
-  line-height: 1.5;
-  /* Dark gradient background evokes deep space */
-  background: linear-gradient(180deg, #0a1428 0%, #010410 100%);
-  color: #e4eaf1;
-  min-height: 100vh;
+  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-dark) 100%);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+.btn.primary-cta {
+  background-image: linear-gradient(45deg, var(--color-primary), var(--color-accent));
+  color: #fff;
+  box-shadow: 0 0 20px rgba(98, 166, 226, 0.5);
+}
+.btn.primary-cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(200, 61, 214, 0.6);
+}
+.btn.secondary {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+.btn.secondary:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(98, 166, 226, 0.4);
+}
+
+/* Sections */
+section {
+  width: 100%;
+  padding: 4rem 1rem;
+}
+
+.section-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--color-secondary);
+  margin-bottom: 2rem;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 90vh;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -2;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+.hero-content {
   text-align: center;
   padding: 2rem;
 }
-
-.container {
-  max-width: 700px;
-  width: 100%;
-}
-
-.title {
+.hero-title {
   font-family: 'Orbitron', sans-serif;
-  font-size: clamp(2rem, 8vw, 3rem);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
-  color: #62a6e2;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+.hero-subtitle {
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  color: var(--color-secondary);
+  margin-bottom: 2rem;
+}
+.small-link {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--color-muted);
 }
 
-.subtitle {
-  font-size: clamp(1.1rem, 4vw, 1.5rem);
-  font-weight: 500;
-  color: #b3c7e3;
+/* Trailer Section */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Audio Section */
+.audio-section .track {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  transition: background 0.3s;
+}
+.audio-section .featured-track {
+  border: 1px solid var(--color-accent);
+  box-shadow: 0 0 10px rgba(200, 61, 214, 0.3);
+}
+.audio-section .track:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Highlight active track */
+.audio-section .track.active {
+  border: 1px solid var(--color-primary);
+  box-shadow: 0 0 12px rgba(98, 166, 226, 0.4);
+}
+.track-header h3 {
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+}
+.track-header p {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+}
+.track-info h4 {
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+.play-pause {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.2s, color 0.2s;
+}
+.play-pause:hover {
+  transform: scale(1.2);
+  color: var(--color-accent);
+}
+.progress-container {
+  flex: 1;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background-image: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  transition: width 0.1s linear;
+}
+.time {
+  font-size: 0.85rem;
+  color: var(--color-secondary);
+  white-space: nowrap;
+}
+
+/* CTA Section */
+.cta-section {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+/* Reviews Section */
+.review-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.review-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s;
+}
+.review-card:hover {
+  transform: translateY(-4px);
+}
+.stars {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--color-accent);
   margin-bottom: 0.75rem;
 }
-
-.description {
-  font-size: clamp(0.9rem, 3vw, 1.2rem);
-  color: #8fa5c5;
-  margin-bottom: 1.5rem;
+.review-text {
+  font-size: 0.95rem;
+  color: var(--color-secondary);
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+.review-author {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  text-align: right;
 }
 
-/* Button styling: disabled look but still visible as a placeholder */
-.cta {
-  display: inline-block;
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
-  padding: 0.75rem 2rem;
-  border-radius: 4px;
-  background-color: #2b4f73;
-  color: #e4eaf1;
-  text-decoration: none;
-  opacity: 0.5;
-  cursor: default;
+/* Formats Section */
+.format-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
-.cta[aria-disabled='true'] {
-  pointer-events: none;
+/* Comments Section */
+.comments {
+  padding-top: 4rem;
+}
+.comments #cusdis_thread {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+  /* optional: define CSS variables to tweak Cusdis theme */
+  --cusdis-background: var(--color-bg);
+  --cusdis-text-color: var(--color-text);
+  --cusdis-accent-color: var(--color-accent);
+  --cusdis-border-color: rgba(255,255,255,0.15);
+  --cusdis-input-background: #112240;
+  --cusdis-input-text-color: var(--color-text);
+  --cusdis-button-background: var(--color-accent);
+  --cusdis-button-text-color: #000;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Ensure the layout scales elegantly on smaller screens */
-@media (max-width: 480px) {
-  .title {
-    letter-spacing: 0.03em;
+/* Media Queries */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 70vh;
   }
-  .description {
-    margin-bottom: 1.25rem;
+  .controls {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .time {
+    width: 100%;
+    text-align: right;
   }
 }
