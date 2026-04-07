@@ -405,3 +405,18 @@ section {
     text-align: right;
   }
 }
+
+@media (max-width: 480px) {
+  /* Further scale down hero on very small screens */
+  .hero {
+    min-height: 60vh;
+    padding: 1.5rem;
+  }
+  .hero-title {
+    font-size: 2rem;
+    letter-spacing: 0.05em;
+  }
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+}
