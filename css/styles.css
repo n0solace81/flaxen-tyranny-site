@@ -362,33 +362,63 @@ section {
 .comments {
   padding-top: 4rem;
 }
-.comments #cusdis_thread {
+/* Container for static comments */
+.comments .comments-container {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  /* Increased height to ensure the embedded comments are fully visible */
-  min-height: 650px;
+  background-color: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
-  /* Allow the inner iframe to determine its own height */
-  overflow: visible;
-  /* optional: define CSS variables to tweak Cusdis theme */
-  --cusdis-background: var(--color-bg);
-  --cusdis-text-color: var(--color-text);
-  --cusdis-accent-color: var(--color-accent);
-  --cusdis-border-color: rgba(255,255,255,0.15);
-  --cusdis-input-background: #112240;
-  --cusdis-input-text-color: var(--color-text);
-  --cusdis-button-background: var(--color-accent);
-  --cusdis-button-text-color: #000;
+  padding: 2rem;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
-
-/* Ensure the Cusdis iframe adapts to content height */
-.comments #cusdis_thread iframe {
-  width: 100% !important;
-  min-height: 650px !important;
-  height: auto !important;
-  border: none !important;
+/* Ratings summary at top of comments */
+.rating-summary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.rating-item {
+  text-align: center;
+}
+.rating-stars {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.4rem;
+  color: var(--color-accent);
+  display: block;
+}
+.rating-source {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+/* Comment list */
+.comment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.comment-entry {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  transition: background 0.2s;
+}
+.comment-entry:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.comment-entry .stars {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+}
+.comment-entry .comment-text {
+  font-size: 0.95rem;
+  color: var(--color-secondary);
+  line-height: 1.4;
 }
 
 /* Media Queries */
